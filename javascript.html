@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Html Practice Examples</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -427,8 +427,148 @@ function templatePerson(){
         <h4>List</h4>
     </div>
     <div>
-        This section will be explain all project basic functions and examples ListJs
+       <p>ListJS it's a javascript library that help us to make any list searchable, sortable and filterable. Also we can define the number of items that can be showed in the "table"</p>
     </div>
+    <p>Reference to ListJS</p>
+    <pre class="prettyprint linenums">
+&lt;script type="text/javascript" src="js/list.js"&gt;&lt;/script&gt; </pre>
+    <p>Reference to the plugin to do the paging</p>
+    <pre class="prettyprint linenums">&lt;script type="text/javascript" src="js/list.paging.min.js"&gt;&lt;/script&gt;</pre>
+    <p>Sample for the HTML</p>
+    <pre class="prettyprint linenums">
+&lt;div id="person-list"&gt;
+    &lt;span class="sort" data-sort="name"&gt;Name&lt;/span&gt;   &lt;span class="sort" data-sort="age"&gt;Age&lt;/span&gt;
+    &lt;ul class="list" style="list-style: none;"&gt;
+        &lt;li&gt;
+            &lt;p&gt;&lt;span class="name"&gt;Joao&lt;/span&gt;   &lt;span class="age"&gt;23&lt;/span&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;p&gt;&lt;span class="name"&gt;Joaquim&lt;/span&gt;   &lt;span class="age"&gt;32&lt;/span&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;p&gt;&lt;span class="name"&gt;Miguel&lt;/span&gt;   &lt;span class="age"&gt;10&lt;/span&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;p&gt;&lt;span class="name"&gt;Margarida&lt;/span&gt;   &lt;span class="age"&gt;23&lt;/span&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;p&gt;&lt;span class="name"&gt;Claudia&lt;/span&gt;   &lt;span class="age"&gt;35&lt;/span&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;p&gt;&lt;span class="name"&gt;Ana&lt;/span&gt;   &lt;span class="age"&gt;18&lt;/span&gt;&lt;/p&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;br /&gt;&lt;ul class="paging bottomPaging pagging-block din_table"&gt;&lt;/ul&gt;
+&lt;/div&gt;
+        The keyword <i>data-sort</i> set the action to order the list by the term
+</pre>
+    <p>Set the order by and the paging</p>
+    <pre class="prettyprint linenums">
+         var options = {
+            valueNames: ['Name','Age' ],
+            page: 1,
+            plugins: [['paging']]};
+    </pre>
+    <p>Active the previous options</p>
+    <pre class="prettyprint linenums">
+        var persons = new List('person-list', options);
+    </pre>
+    <p>The CSS</p>
+    <pre class="prettyprint linenums">
+.pagging-block
+{
+    display:inline-block;
+    float: right;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+.din_table li
+{
+    display: inline-block;
+    padding: 2px;
+    list-style: none;
+    width: "50%";
+}
+    </pre>
+    <p>Result</p>
+    <div id="person-list" style="list-style: none;">
+        <ul><b><span class="sort" data-sort="name">Name</span></b>   <b><span class="sort" data-sort="age">Age</span></b></ul>
+        <ul class="list" style="list-style: none;" >
+            <li>
+                <p><span class="name">Joao</span>   <span class="age">23</span></p>
+            </li>
+            <li>
+                <p><span class="name">Joaquim</span>   <span class="age">32</span></p>
+            </li>
+            <li>
+                <p><span class="name">Miguel</span>   <span class="age">10</span></p>
+            </li>
+            <li>
+                <p><span class="name">Margarida</span>   <span class="age">23</span></p>
+            </li>
+            <li>
+                <p><span class="name">Claudia</span>   <span class="age">35</span></p>
+            </li>
+            <li>
+                <p><span class="name">Ana</span>   <span class="age">18</span></p>
+            </li>
+        </ul>
+        <br /><ul class="paging bottomPaging pagging-block din_table"></ul>
+    </div>
+<script type="text/javascript">
+
+  function ListNames()
+  {
+        var options = {
+            valueNames: ['name','age' ],
+            page: 2,
+            plugins: [['paging']]};
+        var persons = new List('person-list', options);
+  }
+</script>
+    <br />
+    <br />
+    <p><b>Using the Listjs to search in a list</b></p>
+    <p>Create an input field with the class search, inside the div that contains the List</p>
+    <pre class="prettyprint linenums"><input class="search" placeholder="Add a search field"> </pre>
+    <p>Example using the previous data:</p>
+    <br />
+    <div id="person-list2" style="list-style: none;">
+        <ul><b><span>Name</span></b>   <b><span>Age</span></b></ul>
+        <ul class="list" style="list-style: none;" >
+            <li>
+                <p><span class="name">Joao</span>   <span class="age">23</span></p>
+            </li>
+            <li>
+                <p><span class="name">Joaquim</span>   <span class="age">32</span></p>
+            </li>
+            <li>
+                <p><span class="name">Miguel</span>   <span class="age">10</span></p>
+            </li>
+            <li>
+                <p><span class="name">Margarida</span>   <span class="age">23</span></p>
+            </li>
+            <li>
+                <p><span class="name">Claudia</span>   <span class="age">35</span></p>
+            </li>
+            <li>
+                <p><span class="name">Ana</span>   <span class="age">18</span></p>
+            </li>
+        </ul>
+        <br />
+        <input class="search" placeholder="Insert Text to search">
+    </div>
+    <script type="text/javascript">
+
+        function ListNames()
+        {
+            var options = {
+                valueNames: ['name']};
+            var persons = new List('person-list2', options);
+        }
+    </script>
+    <br /><p>To set the search to a particular column, when we define the options, just put in the valueNames the searchable fields</p>
 </section>
 <section id="underscore">
     <div class="page-header">
@@ -534,7 +674,8 @@ $.noty.defaults = {
 <script type="text/javascript" src="js/noty/jquery.noty.js"></script>
 <script type="text/javascript" src="js/noty/themes/default.js"></script>
 <script type="text/javascript" src="js/noty/layouts/center.js"></script>
-
+<script type="text/javascript" src="js/list.js"></script>
+<script type="text/javascript" src="js/list.paging.min.js"></script>
 
 <script type="text/javascript">
     function sayHello(){
@@ -549,7 +690,7 @@ $.noty.defaults = {
 
     $(document).ready(function(){
         prettyPrint();
-
+        ListNames();
         $("[id$=btnSubmit3]").click(function(){
             $("[id$=lblNameResult3]").text("Hello "+$("[id$=txtName3]").val()+" and welcome to this tutorial!!!");
             event.preventDefault();

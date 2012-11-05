@@ -999,3 +999,18 @@ form.bs-docs-example {
     float: none;
   }
 }
+.pagging-block
+{
+    display:inline-block;
+    float: left;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+.din_table li
+{
+    display: inline-block;
+    padding: 2px;
+    list-style: none;
+    width: "50%";
+}

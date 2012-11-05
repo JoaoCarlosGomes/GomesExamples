@@ -5772,3 +5772,11 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+.pagging-block
+{
+    display:inline-block;
+    float: right;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
